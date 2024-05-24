@@ -1,4 +1,3 @@
-import { SearchParams } from "./api-client";
 import { RegisterFormData } from "./pages/Register";
 import { SignInFormData } from "./pages/SignIn";
 import { HotelSearchResponse, HotelType } from "../../backend/src/shared/types";
