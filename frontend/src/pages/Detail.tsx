@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import * as apiClient from "../api-client";
-import React from "react";
 import { AiFillStar } from "react-icons/ai";
 import GuestInfoForm from "../forms/GuestInfoForm/GuestInfoForm";
 
