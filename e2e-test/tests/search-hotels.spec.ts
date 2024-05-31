@@ -51,7 +51,7 @@ test("should book hotel", async ({ page }) => {
   await page.getByPlaceholder("where are you going ?").fill("Canada");
 
   const date = new Date();
-  date.setDate(date.getDate() + 3);
+  date.setDate(date.getDate() + 7);
   const formattedDate = date.toISOString().split("T")[0];
   await page.getByPlaceholder("Check-out Date").fill(formattedDate);
 
@@ -60,7 +60,7 @@ test("should book hotel", async ({ page }) => {
   await page.getByText("Dublin Gateways").click();
   await page.getByRole("button", { name: "Book Now" }).click();
 
-  await expect(page.getByText("Total Cost : $36.00")).toBeVisible();
+  await expect(page.getByText("Total Cost : $108.00")).toBeVisible();
 
   const stripeFrame = page.frameLocator("iframe").first();
   await stripeFrame
@@ -72,4 +72,7 @@ test("should book hotel", async ({ page }) => {
 
   await page.getByRole("button", { name: "Confirm Booking" }).click();
   await expect(page.getByText("Booking Saved!")).toBeVisible();
+
+  await page.getByRole("link", { name: "My Bookings" }).click();
+  await expect(page.getByText("Dublin Gateways")).toBeVisible();
 });
